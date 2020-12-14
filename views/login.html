@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="Boodskap Inc.,">
 	<link rel="icon" type="image/png" sizes="32x32" href="images/mrt-logo.svg">
-	<title>Neuron DVR | Boodskap</title>
+	<title>My Web | Boodskap</title>
 	<link href="dist/css/style.min.css" rel="stylesheet">
 	<link href="css/main-style.css" rel="stylesheet">
 	<link href="css/login.css" rel="stylesheet">
@@ -15,29 +15,25 @@
 	<link href="dist/css/fonts/Play-Bold.ttf" rel="stylesheet">
     <link href="dist/css/fonts/Play-Regular.ttf" rel="stylesheet">
     <link href="dist/css/fonts/Playcss2.css" rel="stylesheet">
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
 	<base href="<%=config.url%>/">
 </head>
+
 <body>
 <input type="hidden" value="<%=basePath%>" id="BASE_PATH" />
 <input type="hidden" value="<%=config.url%>" id="BASE_URL" />
-
 <input type="hidden" id="API_URL" value="<%= config.appApiUrl %>" />
 <section>
 	<div id="blocks" style="position: fixed;width:100%;height: 100%;left:0px;z-index:0"></div>
-
 	<div class="row no-gutters">
 		<div class="col-lg-4 col-md-5 col-sm-12 offset-lg-4 offset-md-3" >
 			<div class="card cardSection mt-lg-4 mt-md-4">
 				<div class="card-body">
 					<div class="text-center logo">
-						<img src="images/myweb-logo.svg" alt="ndvr-logo">
+						<img src="images/bdskap-logo.png" alt="ndvr-logo">
 					</div>
+					<h1 style="text-align: center;margin-top: 15px;">Login</h1>
 
 					<div class="loginHtml">
 						<form class="m-t-40" autocomplete="off" action="javascript:void(0)" onsubmit="login()">
@@ -51,7 +47,7 @@
 							<div class="form-group position-relative mb-2">
 								<label for="password">Password</label>
 									<input type="password" required="" id="password" class="form-control input-blue" placeholder="" aria-label="Password" aria-describedby="basic-addon3">
-									<span toggle="#password" class="login-pswd cursor-pointer fa fa-eye field-eye-icon toggle-password"></span>
+									<span toggle="#password" class="login-pswd cursor-pointer fa fa-eye field-eye-icon toggle-password"> <span>Show / Hide</span></span>
 								<small class="password"></small>
 							</div>
 							<label class="container text-muted"> Remember me
@@ -71,20 +67,17 @@
 				© <span class="currentYear">2020</span> All rights reserved. <br>
 				<a href="https://boodskap.io"><img src="images/powered-by-boodskap.svg" height="25"></a>
 			</p>
-			<!--	Login Content Goes to here -->
 		</div>
 	</div>
 </section>
 
 <script src="library/plugin/jquery/jquery-3.2.1.min.js"></script>
 <script src="library/plugin/popper/popper.min.js"></script>
-<script src="library/plugin/bootstrap/dist/js/bootstrap.min.js"></script>
-
+<script src="library/plugin/bootstrap/dist/js/bootstrap.js"></script>
 <script src="plugins/code/build/js/intlTelInput.js"></script>
 <script src="plugins/moment.js"></script>
 <script src="plugins/sweetalert2.all.js"></script>
 <script src="plugins/js.cookie.js"></script>
-<!-- <script src="plugins/particles.min.js"></script> -->
 
 <script>
 	var API_URL = $("#API_URL").val();

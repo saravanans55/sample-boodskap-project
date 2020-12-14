@@ -28,7 +28,7 @@ var conf = {};
 
 try {
     conf = require(process.env.HOME + '/config/myweb-customer-web-config');
-    console.log(new Date() + ' | Neuron DVR - Configuration Loaded From Config');
+    console.log(new Date() + ' | My Web - Configuration Loaded From Config');
 } catch (e) {
     console.log(new Date() + ' | Default Configuration Loaded');
     conf = require('./conf');

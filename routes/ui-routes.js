@@ -25,14 +25,14 @@ UIRoutes.prototype.init = function () {
     const self = this;
 
     var sessionCheck = function (req, res, next) {
-        var ndvrwebCookie = req.cookies ? req.cookies["ndvr_web"] : "";
+        var ndvrwebCookie = req.cookies ? req.cookies["myweb_cookie"] : "";
         if (ndvrwebCookie) {
             self.authentication.startSession(req, function (status) {
                 if (status) {
                     next();
                 } else {
                     req.session['sessionObj'] = null;
-                    res.clearCookie('ndvr_web')
+                    res.clearCookie('myweb_cookie')
                     res.redirect(self.app.conf.web.basepath + "/login");
                 }
             })

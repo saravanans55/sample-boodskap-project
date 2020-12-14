@@ -57,7 +57,7 @@ Boodskap.prototype.login = function (req, res) {
             };
 
             req.session['sessionObj'] = sessionObj;
-            res.cookie('ndvr_web', authObj, {
+            res.cookie('myweb_cookie', authObj, {
                 path: '/',
                 expires: new Date(five_hours)
             });

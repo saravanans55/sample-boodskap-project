@@ -24,23 +24,9 @@ $(document).ready(function () {
 
 function logout() {
 
-    $.ajax({
-        url: "/logout",
-        type: 'POST',
-        contentType: "application/json",
-        success: function (data) {
-            //called when successful
-            PAGE_REFRESH = false;
-            localStorage.removeItem('web_settings');
-
-            document.location=BASE_PATH
-        },
-        error: function (e) {
-            //called when there is an error
-            //console.log(e.message);
-            errorMsg("Error occurred, during logout")
-        }
-    });
+    localStorage.removeItem('web_settings');
+    Cookies.set('myweb_cookie','');
+    document.location = BASE_PATH;
 }
 
 

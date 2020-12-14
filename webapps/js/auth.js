@@ -65,60 +65,21 @@ function login() {
     var obj = {
         username: emailId.toLowerCase(),
         password: password,
-
     }
 
     loginCall(obj, function (status, data) {
-
-
-
         if (status) {
-
             if (data.login) {
-                // var five_hours = moment().add(5, 'hours');
-
-                // Cookies.set('ndvrweb',data.cookie, { domain: data.basedomain, path: '/', expires: new Date(five_hours) });
-                document.location = $('#BASE_URL').val() + '/home';
-
-                // if(data.mfa){
-                //     warningMsg('Verification code has been sent to your email address')
-                //     $(window).bind('beforeunload', function(e) {
-                //         if(PAGE_REFRESH){
-                //             return "Unloading this page may lose data. What do you want to do..."
-                //             e.preventDefault();
-                //         }
-                //     });
-                //     $(".loginHtml").html('<form class="m-t-40" autocomplete="off" action="javascript:void(0)" onsubmit="verifyLogin()">\n' +
-                //         '\n' +
-                //         '\t\t\t\t\t\t<div class="form-group">\n' +
-                //         '\t\t\t\t\t\t\t<label for="verificationCode">Verification Code</label>\n' +
-                //         '\t\t\t\t\t\t\t<div class="input-group mb-3">\n' +
-                //         '\t\t\t\t\t\t\t\t<div class="input-group-prepend">\n' +
-                //         '\t\t\t\t\t\t\t\t\t<span class="input-group-text" id="basic-addon2"><i class="icon-key"></i></span>\n' +
-                //         '\t\t\t\t\t\t\t\t</div>\n' +
-                //         '\t\t\t\t\t\t\t\t<input id="verificationCode" required type="text" class="form-control" placeholder="" aria-label="code" aria-describedby="basic-addon2">\n' +
-                //         '\t\t\t\t\t\t\t</div>\n' +
-                //         '\t\t\t\t\t\t\t<small class="emailId"></small>\n' +
-                //         '\t\t\t\t\t\t</div>\n' +
-                //         '\t\t\t\t\t\t<button type="submit" class="mt-2 mb-4 btn btn-block btn-lg btn-primary" id="loginButton">Login</button>\n' +
-                //         '\t\t\t\t\t</form>')
-                // }else{
-                //     document.location = BASE_PATH+'/home';
-                //     // document.location = BASE_PATH+'#/devices/device-types';
-
-                // }
-
+                document.location = $('#BASE_URL').val() + '/main';
             } else {
                 $("#loginButton").removeAttr('disabled');
                 $("#loginButton").html('Login')
                 errorMsg(data.message);
             }
-
         } else {
             $("#loginButton").removeAttr('disabled');
             $("#loginButton").html('Login')
             errorMsg('Username and/or Password are incorrect, Please try again');
-            // errorMsg('Authentication Failed. Incorrect Username/Password')
         }
     })
 }
@@ -130,12 +91,9 @@ function loginCall(obj, cbk) {
         contentType: "application/json",
         data: JSON.stringify(obj),
         success: function (data) {
-            //called when successful
             cbk(true, data);
         },
         error: function (e) {
-            //called when there is an error
-            //console.log(e.message);
             cbk(false, null);
         }
     });
@@ -145,11 +103,9 @@ function loginCall(obj, cbk) {
 function resetPassword() {
 
     var emailId = $.trim($("#emailAddress").val());
-
     var obj = {
         emailId: emailId
     }
-
 
     $("#resetButton").attr('disabled', 'disabled');
 

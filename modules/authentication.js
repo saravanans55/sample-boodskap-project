@@ -19,7 +19,7 @@ module.exports = Authentication;
 Authentication.prototype.startSession = function (req, cbk) {
     
     const self = this;
-    let buff = Buffer.from(req.cookies['ndvr_web'], 'base64');
+    let buff = Buffer.from(req.cookies['myweb_cookie'], 'base64');
     let textObj = buff.toString('utf-8');
 
     var result = JSON.parse(textObj);
