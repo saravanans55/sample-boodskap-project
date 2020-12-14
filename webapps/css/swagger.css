@@ -1,0 +1,15 @@
+.swagger-ui .topbar, .information-container.wrapper, .scheme-container {
+    display: none
+}
+
+.opblock-summary-method {
+    background-color: #4b81c2 !important;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary, .swagger-ui .opblock.opblock-post {
+    border-color: #4b81c2;
+}
+
+.swagger-ui .opblock.opblock-post {
+    color: #fff
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/mrt-logo.svg">
+    <title>Neuron DVR | Boodskap</title>
+
+    <link rel="stylesheet" href="library/plugin/html5-editor/bootstrap-wysihtml5.css" />
+    <link href="library/plugin/toast-master/css/jquery.toast.css" rel="stylesheet">
+
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/pages/stylish-tooltip.css" rel="stylesheet">
+
+    <link href="css/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/daterangepicker.css" />
+
+    <link href="css/main-style.css" rel="stylesheet">
+    <link href="dist/css/fonts/Play-Bold.ttf" rel="stylesheet">
+    <link href="dist/css/fonts/Play-Regular.ttf" rel="stylesheet">
+    <link href="dist/css/fonts/Playcss2.css" rel="stylesheet">
+
+    <base href="<%=config.url%>/">
+
+</head>
+
+<body class="skin-default fixed-layout">
+<input type="hidden" value="<%=basePath%>" id="BASE_PATH" />
+<input type="hidden" value="<%=config.settings.url%>" id="BASE_URL" />
+
+<input type="hidden" id="SESSION_OBJ" value="<%= JSON.stringify(sessionObj) %>" />
+<input type="hidden" id="MQTT_OBJ" value="<%= JSON.stringify(config.settings.boodskap.mqtt) %>" />
+<input type="hidden" id="API_URL" value="<%= config.settings.appApiUrl %>" />
+<input type="hidden" id="api_base_path" value="<%= config.settings.apiUrl %>" />
+<div  class="preloader">
+    <div class="spinner" style="margin-top: 20%;">
+        <div class="dot0"></div>
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+    <div style="text-align: center; font-size: 16px; font-weight: 500; margin-top: -52px; color: #787878;">
+        Loading...
+    </div>
+</div>
+
+<script src="library/plugin/jquery/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+<script src="library/plugin/popper/popper.min.js"></script>
+
+<script src="webapps/library/plugin/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+<script src="dist/js/waves.js"></script>
+<script src="dist/js/sidebarmenu.js"></script>
+<script src="library/plugin/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="library/plugin/sparkline/jquery.sparkline.min.js"></script>
+<script src="dist/js/custom.min.js"></script>
+<script src="library/plugin/toast-master/js/jquery.toast.js"></script>
+
+<script src="plugins/datatables.min.js"></script>
+<script src="plugins/sweetalert2.all.js"></script>
+<script src="plugins/js.cookie.js"></script>
+<script src="plugins/jquery.blockUI.js"></script>
+<script src="plugins/clipboard.min.js"></script>
+
+<script src="plugins/moment.js"></script>
+<script src="plugins/moment-timezone-with-data.js"></script>
+<script src="plugins/underscore-min.js"></script>
+<script src="plugins/boodskap.mqtt.js"></script>
+<script src="library/plugin/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="plugins/js/daterangepicker.min.js"></script>
+
+<script src="js/variables.js"></script>
+<script src="js/common.js"></script>
+
+<script src="js/mqtt-adapter.js"></script>
+
+<script src="js/layout.js"></script>
+
+<div id="main-wrapper">
+    <%- include ('leftmenu.html') %>
+    <%- include ('header.html') %>
+    <div class="page-wrapper" id="pageWrapper" style="margin-left:0">
+        <%- body %>
+    </div>
+    <%- include ('footer.html') %>
+</div>
+
+</body>
+
+</html>
