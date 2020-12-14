@@ -50,7 +50,7 @@ UIRoutes.prototype.init = function () {
         var sessionObj = req.session ? req.session['sessionObj']:"";
 
         if (sessionObj) {
-            res.redirect(self.app.conf.web.basepath + '/home');
+            res.redirect(self.app.conf.web.basepath + '/main');
         } else {
             res.render('login.html', {
                 layout: false,
@@ -60,26 +60,51 @@ UIRoutes.prototype.init = function () {
         }
     });
 
-    self.router.get('/home', sessionCheck, function (req, res) {
+
+    //After Login pages
+
+    self.router.get('/main', sessionCheck, function (req, res) {
 
         res.render('home/home.html', {
             layout: '',
             sessionObj: req.session['sessionObj'],
             config: self.app.conf,
-            dataObj : "",
             basePath: self.app.conf.web.basepath
         });
     });
 
-    self.router.get('/devices',sessionCheck, function (req, res) {
+    self.router.get('/home', sessionCheck, function (req, res) {
 
-        res.render('home/devices.html', {
+        res.render('home/home.html', {
             layout: false,
-            basePath: self.app.conf.web.basepath,
             sessionObj: req.session['sessionObj'],
-            conf: self.app.conf,
+            config: self.app.conf,
+            basePath: self.app.conf.web.basepath
         });
     });
+
+
+    self.router.get('/profile', sessionCheck, function (req, res) {
+
+        res.render('home/profile.html', {
+            layout: false,
+            sessionObj: req.session['sessionObj'],
+            config: self.app.conf,
+            basePath: self.app.conf.web.basepath
+        });
+    });
+
+
+    self.router.get('/notifications', sessionCheck, function (req, res) {
+
+        res.render('home/notifications.html', {
+            layout: false,
+            sessionObj: req.session['sessionObj'],
+            config: self.app.conf,
+            basePath: self.app.conf.web.basepath
+        });
+    });
+
 
     self.app.use(self.app.conf.web.basepath, self.router);
 };

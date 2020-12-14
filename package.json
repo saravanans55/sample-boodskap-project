@@ -1,20 +1,20 @@
 {
-  "name": "ndvr-web-node",
+  "name": "sample-boodskap-project",
   "version": "1.0.0",
   "description": "",
-  "main": "ndvr-web-node.js",
+  "main": "server-web-node.js",
   "author": {
-    "name": "Boodskap Inc.,"
+    "name": "Saravanan S"
   },
   "contributors": [
     {
-      "name": "Thanga Vignesh Raja T",
-      "email": "vignesht@boodskap.io",
-      "url": "https://github.com/tvigneshraja"
+      "name": "Saravanan S",
+      "email": "saravanans.design@gmail.com",
+      "url": "https://github.com/saravanansdesign"
     }
   ],
   "scripts": {
-    "start": "node ndvr-customer-web-node.js"
+    "start": "node server-web-node.js"
   },
   "private": true,
   "dependencies": {

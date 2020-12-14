@@ -1,252 +1,29 @@
 <style>
-  .dropdown-container-slidemorph {
-    width: 300px;
-    overflow: hidden;
-    min-width: 0;
-    max-width: none;
-    transition: width .3s ease-in-out, height .3s ease-in-out;
-  }
-
-  .dropdown-container-slidemorph .dropdown-menu {
-    min-width: auto;
-    padding: 3px 0;
-    -webkit-box-shadow: 0 0 0;
-    box-shadow: 0 0 0;
-  }
-
-  .dropdown-container-slidemorph>.dropdown-menu>.dropdown-submenu {
-    position: static;
-  }
-
-  .dropdown-container-slidemorph>.dropdown-menu>.dropdown-submenu>.dropdown-menu {
-    display: block;
-    top: -3px;
-    right: 0;
-    left: auto;
-    border: 0;
-    transform: translate(100%, 0);
-    transition: transform .3s ease-in-out;
-  }
-
-  .dropdown-container-slidemorph>.dropdown-menu>.dropdown-submenu.open>ul {
-    visibility: visible;
-    transform: translate(0, 0);
-  }
-
-  .dropdown-container-slidemorph .dropdown-submenu>a:after {
-    top: 50%;
-    right: 20px;
-    margin: -4px 0 0 0;
-    position: absolute;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\e080";
-    font-size: 9.6px;
-    color: #777777;
-  }
-
-  .dropdown-backlink {
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .dropdown-backlink>a {
-    position: relative;
-    white-space: nowrap !important;
-  }
-
-  .dropdown-backlink>a:before {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    margin: -4px 4px 0 0;
-    position: relative;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\e079" !important;
-    font-size: 9.6px;
-    color: #777777 !important;
-    width: 14px;
-  }
-
-  .btn-link,
-  .btn-link:hover,
-  .btn-link:focus,
-  .btn-link:active {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  /* General styles to improve presentation */
-
-
-  .dropdown {
-    margin-top: -150px;
-    margin-left: -20px;
-  }
-
-
-  .searchbar {
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 40px;
-    background-color: #eeeeee;
-    border-radius: 30px;
-    padding: 10px;
-  }
-
-  .search_input {
-    color: #4b81c2;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    caret-color: transparent;
-    transition: width 0.4s linear;
-  }
-
-  .searchbarHover {
-    padding: 0 10px;
-    width: 0px;
-    caret-color: #4b81c2;
-    transition: width 0.4s linear;
-  }
-
-  .searchbar:hover>.search_icon {
-    color: #4b81c2;
-  }
-
-  .search_icon {
-    height: 20px;
-    width: 20px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color: #4b81c2;
-
-    text-decoration: none;
-  }
+    .navbar-collapse{
+        background: none;
+        box-shadow: none;
+    }
+    .bg-light {
+        background-color: #ffffff!important;
+    }
 </style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 4px solid #08c;">
+    <a class="navbar-brand" href="#">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<header class="topbar">
-
-
-  <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-
-    <div class="navbar-collapse">
-
-      <div class="container">
-        <div class="customize-container">
-          <ul class="navbar-nav my-lg-0">
-            <li class="nav-item mrt-p-7 d-none d-md-block mr-4p my-auto" data-toggle="tooltip" data-placement="left"
-              title="" data-original-title="">
-              <div class="card header-menu mb-0">
-                <div class="card-body  text-center p-2">
-                  <div class="header-img">
-                    <img src="images/camera.svg" alt="dashboard">
-                  </div>
-                  <p class="card-text mt-1">Live Dashboard</p>
-                </div>
-              </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" onclick="loadMainPage('/home')" href="#/home" >Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item mrt-p-7 d-none d-md-block mr-4p my-auto" data-toggle="tooltip" data-placement="left"
-              title="" data-original-title="">
-              <div class="card header-menu mb-0">
-                <div class="card-body  text-center p-2">
-                  <div class="header-img">
-                    <img src="images/playback.svg" alt="Playback">
-                  </div>
-                  <p class="card-text mt-1">Playback</p>
-                </div>
-              </div>
+            <li class="nav-item">
+                <a class="nav-link" onclick="loadMainPage('/notifications')" href="#/notifications" >Notifications</a>
             </li>
-            <li class="nav-item mrt-p-7 d-none d-md-block mr-4p my-auto" data-toggle="tooltip" data-placement="left"
-              title="" data-original-title="">
-              <div class="card header-menu mb-0">
-                <div class="card-body  text-center p-2">
-                  <div class="header-img">
-                    <img src="images/notifications.svg" alt="Notifications">
-                  </div>
-                  <p class="card-text mt-1">Notifications</p>
-                </div>
-              </div>
+            <li class="nav-item">
+                <a class="nav-link"  onclick="loadMainPage('/profile')" href="#/profile">Profile</a>
             </li>
-            <li class="nav-item mrt-p-7 d-none d-md-block mr-4p my-auto" data-toggle="tooltip" data-placement="left"
-              title="" data-original-title="">
-              <div class="logo mx-3">
-                <img src="images/myweb-logo.svg" alt="ndvr-logo">
-              </div>
-            </li>
-            <li class="nav-item mrt-p-7 d-none d-md-block mr-4p my-auto" data-toggle="tooltip" data-placement="left"
-              title="" data-original-title="">
-              <div class="card header-menu mb-0">
-                <div class="card-body  text-center p-2">
-                  <div class="header-img">
-                    <img src="images/setup.svg" alt="Setup">
-                  </div>
-                  <p class="card-text mt-1">Setup</p>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item mrt-p-7 d-none d-md-block mr-4p my-auto" data-toggle="tooltip" data-placement="left"
-              title="" data-original-title="">
-              <div class="card header-menu mb-0">
-                <div class="card-body  text-center p-2">
-                  <div class="header-img">
-                  <img src="images/support.svg" alt="Support">
-                  </div>
-                  <p class="card-text mt-1">Support</p>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item mrt-p-7 d-none d-md-block mr-4p my-auto" data-toggle="tooltip" data-placement="left"
-              title="" data-original-title="">
-              <div class="card header-menu mb-0">
-                <div class="card-body  text-center p-2">
-                  <div class="header-img">
-                    <img src="images/sos.svg" alt="sos">
-                  </div>
-                  <p class="card-text mt-1">SOS</p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+        </ul>
     </div>
-  </nav>
-
-</header>
-
-
-<script>
-  $(document).ready(function () {
-
-    $('.menuClose').on('click', function (event) {
-      $(".megaMenu").css('display', 'none')
-    });
-    $('li.dropdown.mega-dropdown a').on('click', function (event) {
-      $(".megaMenu").css('display', 'block')
-    });
-    // getNotes();
-
-  });
-
-
-  $('ul.nav li.dropdown').hover(function () {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-  }, function () {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-  });
-</script>
+</nav>

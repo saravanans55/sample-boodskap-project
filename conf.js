@@ -9,8 +9,8 @@ module.exports = {
         "url": "http://localhost:4001/myweb",
         "boodskap": {
             "apiUrl": "https://dev.boodskap.io/api",
-            "domainKey": "",
-            "apiKey": "",
+            "domainKey": "XLOYLUDCHY",
+            "apiKey": "7wqaskN4z31b",
             "mqtt": {
                 "hostName": 'dev.boodskap.io',
                 "portNo": 443,
