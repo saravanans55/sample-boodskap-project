@@ -17,13 +17,17 @@ var Authentication = function (app) {
 module.exports = Authentication;
 
 Authentication.prototype.startSession = function (req, cbk) {
-    
-    const self = this;
-    let buff = Buffer.from(req.cookies['myweb_cookie'], 'base64');
-    let textObj = buff.toString('utf-8');
 
-    var result = JSON.parse(textObj);
-    req.session['sessionObj'] = result;
-    
-    cbk(true);
+    try{
+        if(req.cookies['myweb_cookie']){
+            let buff = Buffer.from(req.cookies['myweb_cookie'], 'base64').toString('ascii');
+            let textObj = buff.toString('utf-8');
+
+            var result = JSON.parse(textObj);
+            req.session['sessionObj'] = result;
+        }
+        cbk(true);
+    }catch (e){
+        cbk(false);
+    }
 }

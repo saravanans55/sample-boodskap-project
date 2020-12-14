@@ -23,10 +23,8 @@ $(document).ready(function () {
 });
 
 function logout() {
-
-    localStorage.removeItem('web_settings');
-    Cookies.set('myweb_cookie','');
-    document.location = BASE_PATH;
+    Cookies.set('myweb_cookie',{});
+    document.location=BASE_PATH+'/login';
 }
 
 
