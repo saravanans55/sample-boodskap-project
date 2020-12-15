@@ -58,7 +58,7 @@ UIRoutes.prototype.init = function () {
         res.render('home/home.html', {
             layout: '',
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf.settings,
+            config: self.app.conf,
             basePath: self.app.conf.web.basepath
         });
     });
@@ -68,7 +68,7 @@ UIRoutes.prototype.init = function () {
         res.render('home/home.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf.settings,
+            config: self.app.conf,
             basePath: self.app.conf.web.basepath
         });
     });
@@ -76,10 +76,12 @@ UIRoutes.prototype.init = function () {
 
     self.router.get('/profile', sessionCheck, function (req, res) {
 
+        console.log(self.app.conf);
+
         res.render('home/profile.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf.settings,
+            config: self.app.conf,
             basePath: self.app.conf.web.basepath
         });
     });
@@ -90,7 +92,7 @@ UIRoutes.prototype.init = function () {
         res.render('home/notifications.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf.settings,
+            config: self.app.conf,
             basePath: self.app.conf.web.basepath
         });
     });
