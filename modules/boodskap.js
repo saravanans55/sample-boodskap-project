@@ -36,11 +36,7 @@ Boodskap.prototype.login = function (req, res) {
     self.doLogin(data, function (status, result) {
 
         if (status) {
-            let data = JSON.stringify(result);
-            let buff = new Buffer(data);
-            var authObj = buff.toString('base64');
 
-            var five_hours = moment().add(5, 'hours');
             var sessionObj = {
                 sessionId: req.sessionID,
                 firstName: result.user.firstName,
@@ -57,10 +53,6 @@ Boodskap.prototype.login = function (req, res) {
             };
 
             req.session['sessionObj'] = sessionObj;
-            res.cookie('myweb_cookie', authObj, {
-                path: '/',
-                expires: new Date(five_hours)
-            });
 
             res.json({ login: true, sessionObj:sessionObj});
 
@@ -77,9 +69,6 @@ Boodskap.prototype.login = function (req, res) {
 Boodskap.prototype.clearSession = function (req) {
 
     req.session['sessionObj'] = null;
-    req.session['user_session'] = null;
-    req.session['challenges'] = null;
-    req.session['challengeId'] = null;
 
 }
 
@@ -102,7 +91,7 @@ Boodskap.prototype.doLogin = function (data, cbk) {
                 cbk(false, JSON.parse(res.body))
             } else {
                 console.error(res.body)
-                cbk(false, JSON.parse(res.body))
+                cbk(false, res.body)
             }
         } else {
             console.error(err)
@@ -245,7 +234,6 @@ Boodskap.prototype.elasticDelete = function (rid, rkey, cbk) {
 
     });
 };
-
 Boodskap.prototype.elasticInsert = function (rid, data, cbk) {
 
     const self = this;

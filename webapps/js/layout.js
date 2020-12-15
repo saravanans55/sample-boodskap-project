@@ -1,7 +1,7 @@
 var PAGE_REFRESH = true;
 $(document).ready(function () {
 
-    mqttConnect();
+    // mqttConnect();
     // loadOnlineUsers();
 
     $("base").remove()

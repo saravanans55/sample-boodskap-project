@@ -23,7 +23,7 @@ $(document).ready(function () {
 });
 
 function logout() {
-    Cookies.set('myweb_cookie',{});
+    Cookies.remove('myweb_cookie')
     document.location=BASE_PATH+'/login';
 }
 

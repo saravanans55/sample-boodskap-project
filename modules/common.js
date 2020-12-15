@@ -101,7 +101,6 @@ Common.prototype.commonAdd = function (tablename, req, res) {
 
     const boodskap = new Boodskap(self.app, req['session']['sessionObj'].token);
 
-
     boodskap.elasticInsert(tablename, req.body, function (status, result) {
 
         if (status) {

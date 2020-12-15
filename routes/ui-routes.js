@@ -1,7 +1,6 @@
 var Utils = require("../modules/utils");
 var Common = require("../modules/common");
 var Tables = require("../modules/tables");
-var Authentication = require("../modules/authentication");
 
 var UIRoutes = function (app, router) {
 
@@ -12,7 +11,6 @@ var UIRoutes = function (app, router) {
     this.utils = new Utils(app);
     this.common = new Common(app);
     this.table = new Tables(app);
-    this.authentication = new Authentication(app);
 
     this.init();
 
@@ -25,18 +23,10 @@ UIRoutes.prototype.init = function () {
     const self = this;
 
     var sessionCheck = function (req, res, next) {
-        var ndvrwebCookie = req.cookies ? req.cookies["myweb_cookie"] : "";
-        if (ndvrwebCookie) {
-            self.authentication.startSession(req, function (status) {
-                if (status) {
-                    next();
-                } else {
-                    req.session['sessionObj'] = null;
-                    res.clearCookie('myweb_cookie')
-                    res.redirect(self.app.conf.web.basepath + "/login");
-                }
-            })
-        } else {
+
+        if(req.session['sessionObj']){
+            next();
+        }else{
             res.redirect(self.app.conf.web.basepath + "/login");
         }
     };
@@ -68,7 +58,7 @@ UIRoutes.prototype.init = function () {
         res.render('home/home.html', {
             layout: '',
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf,
+            config: self.app.conf.settings,
             basePath: self.app.conf.web.basepath
         });
     });
@@ -78,7 +68,7 @@ UIRoutes.prototype.init = function () {
         res.render('home/home.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf,
+            config: self.app.conf.settings,
             basePath: self.app.conf.web.basepath
         });
     });
@@ -89,7 +79,7 @@ UIRoutes.prototype.init = function () {
         res.render('home/profile.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf,
+            config: self.app.conf.settings,
             basePath: self.app.conf.web.basepath
         });
     });
@@ -100,7 +90,7 @@ UIRoutes.prototype.init = function () {
         res.render('home/notifications.html', {
             layout: false,
             sessionObj: req.session['sessionObj'],
-            config: self.app.conf,
+            config: self.app.conf.settings,
             basePath: self.app.conf.web.basepath
         });
     });
