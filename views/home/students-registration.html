@@ -1,0 +1,48 @@
+<link href="css/student-registration.css" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="registration-box">
+                <h1>Student Registration</h1>
+
+                <hr>
+
+                <form id="studentRegistrationForm" action="javascript:void(0);" onsubmit="studentRegistration()">
+                    <div class="form-group">
+                        <label for="sname">Student Name</label>
+                        <input type="text" class="form-control" id="sname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select class="form-control" id="department" required>
+                            <option value="">-Select Department-</option>
+                            <option value="CSE">CSE</option>
+                            <option value="MECH">MECH</option>
+                            <option value="ECE">ECE</option>
+                            <option value="EEE">EEE</option>
+                            <option value="CIVIL">CIVIL</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" id="location" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="col-md-9">
+            <h1>Students List</h1>
+            <hr>
+            <table class="table table-bordered responsive no-wrap" id="student_table" cellspacing="0" width="100%">
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="js/student-registration.js" type="text/javascript"></script>

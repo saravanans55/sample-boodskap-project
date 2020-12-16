@@ -13,10 +13,10 @@ Student.prototype.performAction = function (req,res){
     const self = this;
 
     if(req.params.action === 'insert'){
-        self.common.commonUpdate(self.table.STUDENTS_TABLE,req,res);
+        self.common.commonAdd(self.table.STUDENTS_TABLE,req,res);
     }
     else if(req.params.action === 'update'){
-        self.common.commonAdd(self.table.STUDENTS_TABLE,req,res);
+        self.common.commonUpdate(self.table.STUDENTS_TABLE,req,res);
     }
     else if(req.params.action === 'delete'){
         self.common.commonDelete(self.table.STUDENTS_TABLE,req,res);

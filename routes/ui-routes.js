@@ -73,6 +73,16 @@ UIRoutes.prototype.init = function () {
         });
     });
 
+    self.router.get('/students-registration', sessionCheck, function (req, res) {
+
+        res.render('home/students-registration.html', {
+            layout: false,
+            sessionObj: req.session['sessionObj'],
+            config: self.app.conf,
+            basePath: self.app.conf.web.basepath
+        });
+    });
+
 
     self.router.get('/profile', sessionCheck, function (req, res) {
 
