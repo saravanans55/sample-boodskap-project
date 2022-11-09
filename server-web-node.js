@@ -90,10 +90,10 @@ app.use(conf.web.basepath+'/a:/b:/c:/d:/e:/f:',express.static(__dirname + '/weba
 
 app.use(layout());
 
-app.use(cookieParser('NDVR-ADMIN'));
+app.use(cookieParser('SAMPLE-PROJECT'));
 
 var sessionObj = {
-    secret: 'NDVR-ADMIN',
+    secret: 'SAMPLE-PROJECT',
     resave: false,
     saveUninitialized: true,
     cookie: {

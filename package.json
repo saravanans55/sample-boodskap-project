@@ -1,7 +1,7 @@
 {
   "name": "sample-boodskap-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "It's a open source sample project for integrating Boodskap Platform",
   "main": "server-web-node.js",
   "author": {
     "name": "Saravanan S"

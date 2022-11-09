@@ -2,17 +2,17 @@ module.exports = {
     "web": {
         "port": 4001,
         "host": "0.0.0.0",
-        "basepath": "/myweb"
+        "basepath": ""
     },
     "settings": {
-        "appApiUrl" : "http://localhost:4001/myweb",
-        "url": "http://localhost:4001/myweb",
+        "appApiUrl" : "http://localhost:4001",
+        "url": "http://localhost:4001",
         "boodskap": {
-            "apiUrl": "https://dev.boodskap.io/api",
-            "domainKey": "XLOYLUDCHY",
-            "apiKey": "7wqaskN4z31b",
+            "apiUrl": "< Give Your Boodskap API_URL Here >",
+            "domainKey": "< Give Your DOMAIN_KEY Here >",
+            "apiKey": "< Give Your Domain API_KEY Here >",
             "mqtt": {
-                "hostName": 'dev.boodskap.io',
+                "hostName": '< Give Your Boodskap MQTT Server URL Here >',
                 "portNo": 443,
                 "ssl": true
             }
